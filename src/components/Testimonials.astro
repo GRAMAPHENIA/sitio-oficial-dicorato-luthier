@@ -1,0 +1,31 @@
+---
+// src/components/Testimonials.astro
+
+// Define props to accept an array of testimonials
+const { testimonials } = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8 my-10 max-w-7xl mx-auto md:rounded-xl">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-zinc-500),var(--color-zinc-950))] opacity-[15%] backdrop-blur-2xl"></div>
+  <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white ring-1 shadow-xl shadow-zinc-600/40 ring-zinc-700/10 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
+  <div class="mx-auto max-w-2xl lg:max-w-7xl space-y-10">
+    <img class="mx-auto h-12" src="/public/image.webp" alt="Logo de Luthería" />
+    <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {testimonials.map((testimonial, index) => (
+        <figure class="bg-gray-50 p-6 rounded-lg flex flex-col justify-between" key={index}>
+          <blockquote class="text-center text-xl/8 font-semibold text-zinc-800 sm:text-xl/9">
+            <p>{testimonial.text}</p>
+          </blockquote>
+          <figcaption class="mt-6 flex items-center justify-center space-x-3 text-base">
+            <img class="size-10 rounded-full" src="/public/image.webp" alt={`Imagen de ${testimonial.name}`} />
+            <div class="font-semibold text-gray-900">{testimonial.name}</div>
+            <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="fill-gray-900">
+              <circle cx="1" cy="1" r="1"></circle>
+            </svg>
+            <div class="text-gray-600">{testimonial.role}</div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

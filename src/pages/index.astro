@@ -1,11 +1,51 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/hero/Hero.astro";
+import Features from "../components/Features.astro";
+import AboutUs from "../components/AboutUs.astro";
+import Testimonials from "../components/Testimonials.astro";
+import LogoGrid from "../components/LogoGrid.astro";
+import Grid from "../components/Grid.astro";
+import Footer from "../components/Footer.astro";
+import Collections from "@components/Collections.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const testimonialsData = [
+  {
+    text: "“La calidad y el sonido de los instrumentos de este taller son incomparables. Cada pieza es una obra de arte que refleja la pasión y dedicación del luthier.”",
+    name: "Juan Pérez",
+    role: "Músico Profesional",
+  },
+  {
+    text: "“He comprado varios instrumentos aquí y siempre he quedado satisfecho con el resultado. La atención al detalle es excepcional.”",
+    name: "María López",
+    role: "Profesora de Música",
+  },
+  {
+    text: "“El proceso de personalización fue increíble. Recibí un instrumento que no solo suena increíble, sino que también es visualmente impresionante.”",
+    name: "Carlos Rodríguez",
+    role: "Compositor",
+  },
+];
+
+const logosData = [
+  { alt: "Logo 1" },
+  { alt: "Logo 2" },
+  { alt: "Logo 3" },
+  { alt: "Logo 4" },
+  { alt: "Logo 5" },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <Header />
+  <Hero title="Di Corato" subtitle="Instrumentos de cuerda pulsada" />
+  <Features />
+  <Collections />
+  <AboutUs />
+  <Testimonials testimonials={testimonialsData} />
+  <LogoGrid logos={logosData} />
+  <Grid />
+  <Footer />
 </Layout>

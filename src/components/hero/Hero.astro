@@ -1,0 +1,24 @@
+---
+// src/components/Hero.astro
+
+interface HeroProps {
+  title: string;
+  subtitle: string;
+}
+const { title, subtitle } = Astro.props as HeroProps;
+---
+
+<section
+  class=" relative flex flex-col items-center justify-center bg-cover bg-center bg-zinc-900 py-10 md:rounded-xl container h-[400px] max-w-2xl md:max-w-[48rem] lg:max-w-[64rem] xl:max-w-[80rem] mx-auto mt-20 z-10"
+>
+  <!-- Imagen -->
+  <div
+    class="absolute inset-0 bg-[url('/public/image-luthier.webp')] bg-cover bg-center opacity-50 md:rounded-xl saturate-150 "
+  >
+  </div>
+  <!-- Textos -->
+  <div class="relative z-10 text-center">
+    <h1 class="text-white text-4xl md:text-9xl font-bold">{title}</h1>
+    <p class="text-white text-xl md:text-2xl">{subtitle}</p>
+  </div>
+</section>

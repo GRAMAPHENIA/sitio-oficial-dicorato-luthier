@@ -1,0 +1,33 @@
+---
+// src/components/Card.astro
+
+// Definir las props del componente con TypeScript
+interface Props {
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+const { title, description, imageSrc, imageAlt } = Astro.props as Props;
+---
+
+<div
+  class="max-w-xs md:max-w-sm mx-auto rounded-lg overflow-hidden shadow-xs hover:shadow-lg transition duration-300 ease-in-out mb-8 md:mb-12"
+>
+  <img class="w-full h-48 md:h-64 object-cover opacity-50 border border-zinc-300 rounded-t-lg" src={imageSrc} alt={imageAlt} />
+  <div class="px-6 py-4 flex-grow">
+    <div class="font-bold text-xl md:text-2xl mb-2">{title}</div>
+    <p class="text-zinc-700 text-base md:text-lg">{description}</p>
+  </div>
+  <div class="px-6 pt-4 pb-2">
+    <span
+      class="inline-block bg-zinc-100 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2"
+      >#tag1</span
+    >
+    <span
+      class="inline-block bg-zinc-100 rounded-full px-3 py-1 text-sm font-semibold text-zinc-700 mr-2 mb-2"
+      >#tag2</span
+    >
+  </div>
+</div>

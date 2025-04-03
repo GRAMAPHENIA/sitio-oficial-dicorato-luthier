@@ -1,22 +1,38 @@
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <title>Di Corato Luthier</title>
+    <meta
+      name="description"
+      content="Este es el sitio oficial de Dicorato Luthier."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:url" content="https://dicorato.com.ar/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Di Corato Luthier" />
+    <meta property="og:description" content="Creado por Concepto Hexágono" />
+    <meta property="og:image" content="https://dicorato.com.ar/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="dicorato.com.ar" />
+    <meta property="twitter:url" content="https://dicorato.com.ar/" />
+    <meta name="twitter:title" content="Di Corato Luthier" />
+    <meta
+      name="twitter:description"
+      content="Sitio oficial de Di Corato Luthier"
+    />
+    <meta name="twitter:image" content="https://dicorato.com.ar/og-image.jpg" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {Astro.generator && <meta name="generator" content={Astro.generator} />}
+  </head>
+  <body class="bg-zinc-200">
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,108 @@
+---
+
+---
+
+<header class="flex justify-end p-6 relative z-50">
+  <div
+    class="max-w-7xl mx-auto flex justify-right items-center relative space-x-4"
+  >
+    <div class="relative">
+      <button
+        id="menu-toggle-1"
+        class="toggle-button text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/50"
+      >
+        Inicio
+      </button>
+      <div
+        id="menu-1"
+        class="menu-content absolute left-0 mt-2 w-80 rounded-md shadow-lg bg-white/90 backdrop-blur-2xl ring-1 ring-black/10 ring-opacity-5 p-4"
+        style="display: none;"
+      >
+        <div class="py-1">
+          <a
+            href="/caracteristicas"
+            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-white/70 rounded-md my-4"
+          >
+            <h3 class="font-bold text-2xl">Caracteristiscas</h3>
+            <p>
+              Descubre las características únicas y la calidad excepcional de
+              nuestros instrumentos.
+            </p>
+          </a>
+
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-white/90 rounded-md my-4"
+          >
+            <h3 class="font-bold text-2xl">Aceca de mi</h3>
+            <p>
+              Descubre las características únicas y la calidad excepcional de
+              nuestros instrumentos.
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative">
+      <button
+        id="menu-toggle-2"
+        class="toggle-button text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/50"
+      >
+        Galeria
+      </button>
+      <div
+        id="menu-2"
+        class="menu-content absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black/10 ring-opacity-5"
+        style="display: none;"
+      >
+        <div class="py-1">
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100"
+            >Instrumentos</a
+          >
+          <a
+            href="#"
+            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100"
+            >Taller</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="simple-link text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/50">
+      Contacto
+    </a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleButtons = document.querySelectorAll(".toggle-button");
+
+      toggleButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const menuId = button.id.replace("menu-toggle", "menu");
+          const menu = document.getElementById(menuId);
+          const isMenuOpen = menu?.style.display === "block";
+          if (menu) menu.style.display = isMenuOpen ? "none" : "block";
+        });
+      });
+
+      // Cerrar menús al hacer clic fuera de ellos
+      document.addEventListener("click", (event) => {
+        toggleButtons.forEach((button) => {
+          const menuId = button.id.replace("menu-toggle", "menu");
+          const menu = document.getElementById(menuId);
+          if (
+            menu &&
+            !menu.contains(event.target as Node) &&
+            !button.contains(event.target as Node)
+          ) {
+            menu.style.display = "none";
+          }
+        });
+      });
+    });
+  </script>
+</header>
