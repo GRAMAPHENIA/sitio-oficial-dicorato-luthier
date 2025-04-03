@@ -1,8 +1,16 @@
 ---
-// src/components/Testimonials.astro
+interface Testimonial {
+  name: string;
+  role: string;
+  text: string;
+  image: string;
+}
 
-// Define props to accept an array of testimonials
-const { testimonials } = Astro.props;
+interface Props {
+  testimonials: Testimonial[];
+}
+
+const { testimonials } = Astro.props as Props;
 ---
 
 <section class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8 my-10 max-w-7xl mx-auto md:rounded-xl">
@@ -11,21 +19,23 @@ const { testimonials } = Astro.props;
   <div class="mx-auto max-w-2xl lg:max-w-7xl space-y-10">
     <img class="mx-auto h-12" src="/public/image.webp" alt="Logo de Luthería" />
     <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {testimonials.map((testimonial, index) => (
-        <figure class="bg-gray-50 p-6 rounded-lg flex flex-col justify-between" key={index}>
-          <blockquote class="text-center text-xl/8 font-semibold text-zinc-800 sm:text-xl/9">
-            <p>{testimonial.text}</p>
-          </blockquote>
-          <figcaption class="mt-6 flex items-center justify-center space-x-3 text-base">
-            <img class="size-10 rounded-full" src="/public/image.webp" alt={`Imagen de ${testimonial.name}`} />
-            <div class="font-semibold text-gray-900">{testimonial.name}</div>
-            <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="fill-gray-900">
-              <circle cx="1" cy="1" r="1"></circle>
-            </svg>
-            <div class="text-gray-600">{testimonial.role}</div>
-          </figcaption>
-        </figure>
-      ))}
+      {testimonials.map((testimonial) => {
+        return (
+          <figure class="bg-gray-50 p-6 rounded-lg flex flex-col justify-between">
+            <blockquote class="text-center text-xl/8 font-semibold text-zinc-800 sm:text-xl/9">
+              <p>{testimonial.text}</p>
+            </blockquote>
+            <figcaption class="mt-6 flex items-center justify-center space-x-3 text-base">
+              <img class="size-10 rounded-full" src={testimonial.image} alt={`Imagen de ${testimonial.name}`} />
+              <div class="font-semibold text-gray-900">{testimonial.name}</div>
+              <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="fill-gray-900">
+                <circle cx="1" cy="1" r="1"></circle>
+              </svg>
+              <div class="text-gray-600">{testimonial.role}</div>
+            </figcaption>
+          </figure>
+        );
+      })}
     </div>
   </div>
 </section>
