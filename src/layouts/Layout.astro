@@ -1,13 +1,17 @@
+---
+
+---
+
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Di Corato Luthier</title>
+    <title>HIPERSTICION</title>
     <meta
       name="description"
-      content="Este es el sitio oficial de Dicorato Luthier."
+      content="Este es el sitio oficial de Hipersticion."
     />
 
     <!-- Open Graph / Facebook -->
@@ -32,7 +36,19 @@
 
     {Astro.generator && <meta name="generator" content={Astro.generator} />}
   </head>
-  <body class="bg-zinc-200">
+  <body class="bg-zinc-300">
+    <div
+      class="fixed top-0 left-0 w-full h-full bg-[url('/grain.webp')] opacity-20 pointer-events-none z-50"
+    >
+    </div>
+
     <slot />
+
+    <script type="module">
+      import { setupMenuToggles } from "/src/scripts/menuToggles.ts";
+      document.addEventListener("DOMContentLoaded", () => {
+        setupMenuToggles();
+      });
+    </script>
   </body>
 </html>

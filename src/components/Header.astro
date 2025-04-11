@@ -2,76 +2,102 @@
 
 ---
 
-<header class="flex justify-end p-6 relative z-50">
-  <div
-    class="max-w-7xl mx-auto flex justify-right items-center relative space-x-4"
-  >
+<header class="flex justify-center items-center relative z-50 mt-4">
+  <div class="max-w-7xl flex justify-center items-center relative gap-4">
+    <div>
+      <button
+        class="toggle-button text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/30 border border-white/0 hover:border-white/30 transition-all duration-300 ease-in-out"
+      >
+        <a href="/">Inicio</a>
+      </button>
+    </div>
+    <!-- Menú 1 -->
     <div class="relative">
       <button
         id="menu-toggle-1"
-        class="toggle-button text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/50"
+        class="toggle-button text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/30 border border-white/0 hover:border-white/30 transition-all duration-300 ease-in-out"
       >
-        Inicio
+        Caracteristicas
       </button>
       <div
         id="menu-1"
         class="menu-content absolute left-0 mt-2 w-80 rounded-md shadow-lg bg-white/90 backdrop-blur-2xl ring-1 ring-black/10 ring-opacity-5 p-4"
         style="display: none;"
       >
-        <div class="py-1">
+        <div class="py-1 space-y-4">
           <a
             href="/caracteristicas"
-            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-white/70 rounded-md my-4"
+            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-white/70 rounded-md"
+            data-astro-prefetch="hover"
           >
-            <h3 class="font-bold text-2xl">Caracteristiscas</h3>
+            <h3 class="font-bold text-2xl">Anomalías del Sistema</h3>
             <p>
-              Descubre las características únicas y la calidad excepcional de
-              nuestros instrumentos.
+              Explorá los patrones inestables que definen la estructura de este
+              universo. Cada mecánica es una fractura.
             </p>
           </a>
 
           <a
-            href="#"
-            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-white/90 rounded-md my-4"
+            href="/acerca"
+            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-white/70 rounded-md"
+            data-astro-prefetch="hover"
           >
-            <h3 class="font-bold text-2xl">Aceca de mi</h3>
+            <h3 class="font-bold text-2xl">El Nodo Primario</h3>
             <p>
-              Descubre las características únicas y la calidad excepcional de
-              nuestros instrumentos.
+              No es una biografía. Es el registro de un agente dentro del
+              circuito hipersticional.
             </p>
           </a>
         </div>
       </div>
     </div>
 
+    <!-- Menú 2 replicado con estilo y contenido nuevo -->
     <div class="relative">
       <button
         id="menu-toggle-2"
-        class="toggle-button text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/50"
+        class="toggle-button text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/30 border border-white/0 hover:border-white/30 transition-all duration-300 ease-in-out"
       >
-        Galeria
+        Galería
       </button>
       <div
         id="menu-2"
-        class="menu-content absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black/10 ring-opacity-5"
+        class="menu-content absolute left-0 mt-2 w-80 rounded-md shadow-lg bg-white/90 backdrop-blur-2xl ring-1 ring-black/10 ring-opacity-5 p-4"
         style="display: none;"
       >
-        <div class="py-1">
+        <div class="py-1 space-y-4">
           <a
-            href="#"
-            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100"
-            >Instrumentos</a
+            href="/instrumentos-anomalos"
+            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-white/70 rounded-md"
+            data-astro-prefetch="hover"
           >
+            <h3 class="font-bold text-2xl">Instrumentos Anómalos</h3>
+            <p>
+              Artefactos diseñados para alterar el pulso del tiempo. No son
+              objetos: son catalizadores.
+            </p>
+          </a>
           <a
-            href="#"
-            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100"
-            >Taller</a
+            href="/taller"
+            class="block px-4 py-2 text-sm text-zinc-700 hover:bg-white/70 rounded-md"
+            data-astro-prefetch="hover"
           >
+            <h3 class="font-bold text-2xl">Zona de Ensamblaje</h3>
+            <p>
+              El lugar donde convergen planos: herramientas, visiones y residuos
+              del futuro colapsado.
+            </p>
+          </a>
         </div>
       </div>
     </div>
 
-    <a href="#" class="simple-link text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/50">
+    <!-- Contacto -->
+    <a
+      href="/contacto"
+      class="simple-link text-zinc-800 font-semibold px-4 py-2 rounded-full cursor-pointer hover:bg-zinc-100/30 border border-white/0 hover:border-white/30 transition-all duration-300 ease-in-out"
+      data-astro-prefetch="hover"
+    >
       Contacto
     </a>
   </div>
@@ -80,29 +106,37 @@
     document.addEventListener("DOMContentLoaded", () => {
       const toggleButtons = document.querySelectorAll(".toggle-button");
 
-      toggleButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const menuId = button.id.replace("menu-toggle", "menu");
-          const menu = document.getElementById(menuId);
-          const isMenuOpen = menu?.style.display === "block";
-          if (menu) menu.style.display = isMenuOpen ? "none" : "block";
-        });
-      });
-
-      // Cerrar menús al hacer clic fuera de ellos
-      document.addEventListener("click", (event) => {
+      const setupMenuToggles = () => {
         toggleButtons.forEach((button) => {
-          const menuId = button.id.replace("menu-toggle", "menu");
-          const menu = document.getElementById(menuId);
-          if (
-            menu &&
-            !menu.contains(event.target as Node) &&
-            !button.contains(event.target as Node)
-          ) {
-            menu.style.display = "none";
-          }
+          button.addEventListener("click", () => {
+            const menuId = button.id.replace("menu-toggle", "menu");
+            const menu = document.getElementById(menuId);
+            const isMenuOpen = menu?.style.display === "block";
+            if (menu) menu.style.display = isMenuOpen ? "none" : "block";
+          });
         });
-      });
+
+        document.addEventListener("click", (event) => {
+          toggleButtons.forEach((button) => {
+            const menuId = button.id.replace("menu-toggle", "menu");
+            const menu = document.getElementById(menuId);
+            if (
+              menu &&
+              !menu.contains(event.target as Node) &&
+              !button.contains(event.target as Node)
+            ) {
+              menu.style.display = "none";
+            }
+          });
+        });
+      };
+
+      setupMenuToggles();
+
+      // Escucha los cambios de ruta y vuelve a configurar los menús desplegables
+      window.addEventListener("popstate", setupMenuToggles);
+      window.addEventListener("pushstate", setupMenuToggles);
+      window.addEventListener("replacestate", setupMenuToggles);
     });
   </script>
 </header>
